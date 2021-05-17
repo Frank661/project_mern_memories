@@ -19,12 +19,13 @@ const initialState = {
 
 
 const Auth = () => {
+    const [formData, setFormData] = useState(initialState);
     const classes = useStyles();
     const [isSignup, setIsSignup] = useState(false);
     const [showPassword, setShowPassword]=useState(false);
     const dispatch = useDispatch();
     const history = useHistory();
-    const [formData, setFormData] = useState(initialState);
+ 
 
 
     const handleSubmit= (e) => {
@@ -38,10 +39,9 @@ const Auth = () => {
 
     }
     const handleChange= (e) => {
-
         setFormData({...formData, [e.target.name]: e.target.value})
     }
-    const handleShowPassword= () => setShowPassword((prevShowPassword) => !prevShowPassword);
+    const handleShowPassword = () => setShowPassword(!showPassword);
 
     const switchMode = () => { 
         setIsSignup((prevIsSignup) => !prevIsSignup)
